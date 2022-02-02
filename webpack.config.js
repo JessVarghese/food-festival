@@ -1,6 +1,5 @@
 const webpack = require('webpack');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 // const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 // const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require('path');
@@ -14,12 +13,12 @@ const config = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: __dirname + '/dist'
+    path: `${__dirname}/dist`
   },
   module: {
     rules: [
       {
-        test: /\.jpg$/i,
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
             loader: 'file-loader',
